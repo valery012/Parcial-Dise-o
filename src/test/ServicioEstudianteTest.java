@@ -20,9 +20,19 @@ class ServicioEstudianteTest {
 		when(esturegistrados.buscarPorMatricula("juan")).thenReturn(estu);
 		boolean registro= servi.esEstudianteRegistrado("juan");
 		assertTrue(registro);
-	
-	
-		
-	}
 
+	}
+	@Test
+	void esEstudianteRegistradotest2() {
+		when(esturegistrados.buscarPorMatricula("juan")).thenReturn(null);
+		boolean registro= servi.esEstudianteRegistrado("juan");
+		assertFalse(registro);
+
+	}
+	@Test
+	void esEstudianteRegistradotest2if () {
+		IllegalArgumentException excep=assertThrows(IllegalArgumentException.class,()->servi.esEstudianteRegistrado(null));
+		assertEquals(excep.getMessage(),"No se admiten matrículas nulas o vacías");
+	}
+	
 }
