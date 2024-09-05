@@ -55,11 +55,12 @@ class ServicioEstudianteTest {
 		mockarrayestu.add(estu1);
 		mockarrayestu.add(estu2);
 		double edadp= servi.obtenerPromedioEdadEstudiantes();
-		
+		when(esturegistrados.calcularPromedioEdad())thenReturn(12);
 		assertEquals(12,edadp);
-		
-		
 	
-		
+	}
+	@Test
+	void obtenerMaximoNumeroEstudiantestest(){
+		assertEquals(2000,servi.obtenerMaximoNumeroEstudiantes());
 	}
 }
